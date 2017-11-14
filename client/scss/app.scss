@@ -1,0 +1,27 @@
+$teal: #009999;
+$teal-dark: #008080;
+$teal-light: hsla(180, 100%, 30%, 0.6);
+$teal-grey: hsla(180, 100%, 30%, 0.3);
+
+$charcoal: #333333;
+$charcoal-light: hsla(0, 0%, 20%, 0.1);
+
+$white-off: #f2f2f2;
+
+.bgcolor-4 { background: #2f3238; color: #fff; }
+
+body {
+	padding: 0;
+	background: $charcoal-light;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+	h1 {
+		color: $white-off;
+	}
+}
+
+.card {
+	background: $teal
+}
