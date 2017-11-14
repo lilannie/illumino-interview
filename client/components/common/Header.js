@@ -7,6 +7,9 @@ export default class Header extends Component {
 				<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<div className="container-fluid">
 						<h1 className="mx-auto display-3">Matching Game</h1>
+						<div className="">
+							<button type="button" className="btn btn-secondary" onClick={this.props.handleReset}>Reset</button>
+						</div>
 					</div>
 				</nav>
 			</div>

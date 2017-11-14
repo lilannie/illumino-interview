@@ -11,17 +11,18 @@ export default class Card extends Component {
 
 		let content = isTurnedOver ? (<img src={image} />) : null ;
 		return (
-			<div className="col card" onClick={handleClick.bind(null, this.props.id)}>
-				{ content }
+			<div className="col" onClick={handleClick}>
+				<div className="card">
+					{ content }
+				</div>
 			</div>
 		);
 	}
 };
 
 Card.propTypes = {
-	id: PropTypes.number,
-	isTurnedOver: PropTypes.bool,
 	image: PropTypes.string,
+	isTurnedOver: PropTypes.bool,
 	handleClick: PropTypes.func
 };
 

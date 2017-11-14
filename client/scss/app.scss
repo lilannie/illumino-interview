@@ -22,6 +22,19 @@ body {
 	}
 }
 
+.game {
+	margin-top:150px;
+}
+
 .card {
-	background: $teal
+	margin: 5px;
+	background: $teal;
+	width: 100px;
+	height: 100px;
+	padding: 0px;
+
+	img {
+		width: 100px;
+		height: 100px;
+	}
 }
