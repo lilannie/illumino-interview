@@ -1,0 +1,41 @@
+{
+  "name": "Boilerplate",
+  "version": "1.0.0",
+  "description": "Simple React App",
+  "author": "Annie Steenson",
+  "license": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && npm run server",
+    "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js",
+    "build-dev": "./node_modules/.bin/webpack --config ./config/webpack.config.js -w",
+    "server": "node ./server/app.js",
+    "server-dev": "nodemon ./server/app.js"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "prop-types": "^15.6.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "css-loader": "^0.26.1",
+    "json-loader": "^0.5.7",
+    "node-sass": "^4.2.0",
+    "nodemon": "^1.11.0",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.12.13",
+    "webpack-hot-middleware": "^2.18.2"
+  }
+}
