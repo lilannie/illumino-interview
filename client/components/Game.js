@@ -13,11 +13,12 @@ export default class Game extends Component {
 		this.handleOutOfTime = this.handleOutOfTime.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.renderGrid = this.renderGrid.bind(this);
+		this.renderTimer = this.renderTimer.bind(this);
 
 		this.state = {
 			grid: this.initializeGrid(),
 			outOfTime: false,
-			startingTime: 10,
+			startingTime: 180,
 			numMatched: 0,
 			firstCardClicked: false,
 			cardClicked: {
@@ -25,7 +26,6 @@ export default class Game extends Component {
 				row: 0,
 				col: 0
 			},
-
 		};
 	}
 
@@ -79,12 +79,12 @@ export default class Game extends Component {
 		this.setState({
 			grid: this.initializeGrid(),
 			outOfTime: false,
-			startingTime: 10
+			startingTime: 180
 		});
 	}
 
 	handleOutOfTime() {
-		alert('Sorry! You ran out of time. Please, reset the game to play again.');
+		alert('Sorry! You ran out of time. Please, reshuffle the game to play again.');
 
 		this.setState({
 			outOfTime: true
@@ -132,6 +132,19 @@ export default class Game extends Component {
 
 	renderGrid() {
 		return this.state.grid.map((row, rowIndex) => {
+			let sideNav = rowIndex === 0
+				? (<div className="col">
+							<div className="row">
+								<button type="button" className="btn btn-secondary" onClick={this.handleReset}>Reshuffle</button>
+							</div>
+							<br/>
+							<div className="row">
+								{ this.renderTimer() }
+							</div>
+						</div>)
+				: (<div className="col"></div>);
+
+
 			return (
 				<div className="row" key={rowIndex}>
 					{
@@ -143,13 +156,29 @@ export default class Game extends Component {
 
 							return (<Card key={`${rowIndex},${colIndex}`}
 							              handleClick={handleClick}
-							              {...card} />)
-								;
+							              {...card} />);
 						})
 					}
+
+					{ sideNav }
 				</div>
 			);
 		});
+	}
+
+	renderTimer() {
+		const {
+			outOfTime,
+			startingTime
+		} = this.state;
+
+		if (outOfTime) return null;
+
+		return (<ReactCountdownClock seconds={startingTime}
+		                     color="#000"
+		                     alpha={0.9}
+		                     size={100}
+		                     onComplete={this.handleOutOfTime} />);
 	}
 
 	render() {
@@ -157,23 +186,8 @@ export default class Game extends Component {
 			alert('You won! Yay!');
 		}
 
-		let timer = (<ReactCountdownClock seconds={this.state.startingTime}
-		                                 color="#000"
-		                                 alpha={0.9}
-		                                 size={100}
-		                                 onComplete={this.handleOutOfTime} />);
-		if (this.state.outOfTime) timer = null;
-
 		return (
 			<div className="game">
-					<div className="row justify-content-center">
-							<div className="col">
-								<button type="button" className="btn btn-secondary" onClick={this.handleReset}>Reset</button>
-							</div>
-							<div className="col">
-								{ timer }
-							</div>
-					</div>
 					{ this.renderGrid() }
 			</div>
 		);

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 
 import Game from '../components/Game';
-import Header from '../components/common/Header';
+import Header from '../components/Header';
 
 import '../scss/app.scss';
 
 export default class App extends Component {
-	constructor(props) {
-		super(props);
-	}
-
   render() {
     return (
-    	<div className="main">
+    	<div className="app">
 		    <Header/>
 		    <Game/>
 	    </div>
