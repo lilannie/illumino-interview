@@ -6,7 +6,7 @@ export default class Header extends Component {
 			<div className="header">
 				<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<div className="container-fluid">
-						<h1 className="mx-auto display-3">Matching Game</h1>
+						<h3 className="mx-auto">Matching Game</h3>
 					</div>
 				</nav>
 			</div>
